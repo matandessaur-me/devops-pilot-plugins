@@ -743,6 +743,13 @@
       "summary": "Launched headless Chrome (CDP) for phone-width screenshots instead of the in-app browser; Chrome windows popped up outside the app. Use POST /api/browser/emulate/device {width,height} then GET /api/browser/screenshot. Never start a browser of your own (absolute rule 10).",
       "detail": null,
       "addedAt": "2026-09-08"
+    },
+    {
+      "category": "shell",
+      "cli": "claude",
+      "summary": "Building a JSON spawn body with node -e inside a bash command line eats the backslashes of Windows paths (C:/Code/X written with backslashes became C:CodeX); spawn then fails with ENOENT -4058 because the cwd does not exist. Write the body to a file with forward slashes and post it with --data-binary @file; never inline Windows paths in node -e.",
+      "detail": null,
+      "addedAt": "2026-09-08"
     }
   ]
 }
