@@ -757,6 +757,34 @@
       "summary": "netlify deploy --build on Windows can fail with EPERM symlink errors from @netlify/plugin-nextjs when a devDependency (e.g. jsdom) ends up in the trace, because IS_LOCAL=true skips the plugin node_modules filter that a real CI build applies.",
       "detail": "Fix: patch the cached plugin file .netlify/plugins/node_modules/@netlify/plugin-nextjs/dist/build/content/server.js, adding dereference:true to its fs.cp() calls so it copies real files instead of recreating symlinks (which need admin/Developer Mode on Windows). This is local-only (.netlify is gitignored) and unnecessary once real GitHub-connected CI (Linux) builds the site.",
       "addedAt": "2026-09-10"
+    },
+    {
+      "category": "platform",
+      "cli": "claude",
+      "summary": "Netlify blocks deploys of Next.js versions affected by CVE-2025-55182 (next 16.0.0 included) even when the build passes; the failure shows only as 'Build script returned non-zero exit code: 2' and the real message is at the deploy-upload stage. Bump next (16.3.4 worked) before pushing.",
+      "detail": null,
+      "addedAt": "2026-09-10"
+    },
+    {
+      "category": "general",
+      "cli": "claude",
+      "summary": "Unsplash images fetched by photo id can be Unsplash+ premium assets that render with a tiled watermark. Before uploading stock photos, reject any id whose photo page is unsplash.com/plus and view the downloaded file; filenames give no hint (source is null on the Sanity asset).",
+      "detail": null,
+      "addedAt": "2026-09-10"
+    },
+    {
+      "category": "general",
+      "cli": "claude",
+      "summary": "Images with loading=lazy inside absolutely positioned cards that are moved only by CSS transform (all sharing one layout box at the canvas origin) may never start loading: the browser judges laziness on the layout box, which never changes. Use eager loading or an IntersectionObserver for such galleries. Also, percentage padding on an absolutely positioned element resolves against the containing block, not the element.",
+      "detail": null,
+      "addedAt": "2026-09-10"
+    },
+    {
+      "category": "orchestration",
+      "cli": "claude",
+      "summary": "When polishing a site an owner already likes, agents must not 'improve' signature design choices (transparent corner-only navigation, right-aligned menus, intentionally sparse grids, chosen accent fonts). Pass-3 agents given generic responsive/accessibility briefs added header backgrounds, boxed corner links, padded galleries with off-brand stock, and re-aligned menus, all of which the owner reverted. Briefs must say: keep the existing design intent; fix bugs, do not restyle.",
+      "detail": null,
+      "addedAt": "2026-09-10"
     }
   ]
 }
