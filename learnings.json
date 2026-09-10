@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-10",
   "learnings": [
     {
       "category": "cli-flags",
@@ -750,6 +750,13 @@
       "summary": "Building a JSON spawn body with node -e inside a bash command line eats the backslashes of Windows paths (C:/Code/X written with backslashes became C:CodeX); spawn then fails with ENOENT -4058 because the cwd does not exist. Write the body to a file with forward slashes and post it with --data-binary @file; never inline Windows paths in node -e.",
       "detail": null,
       "addedAt": "2026-09-08"
+    },
+    {
+      "category": "platform",
+      "cli": "claude",
+      "summary": "netlify deploy --build on Windows can fail with EPERM symlink errors from @netlify/plugin-nextjs when a devDependency (e.g. jsdom) ends up in the trace, because IS_LOCAL=true skips the plugin node_modules filter that a real CI build applies.",
+      "detail": "Fix: patch the cached plugin file .netlify/plugins/node_modules/@netlify/plugin-nextjs/dist/build/content/server.js, adding dereference:true to its fs.cp() calls so it copies real files instead of recreating symlinks (which need admin/Developer Mode on Windows). This is local-only (.netlify is gitignored) and unnecessary once real GitHub-connected CI (Linux) builds the site.",
+      "addedAt": "2026-09-10"
     }
   ]
 }
