@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "learnings": [
     {
       "category": "cli-flags",
@@ -785,6 +785,13 @@
       "summary": "When polishing a site an owner already likes, agents must not 'improve' signature design choices (transparent corner-only navigation, right-aligned menus, intentionally sparse grids, chosen accent fonts). Pass-3 agents given generic responsive/accessibility briefs added header backgrounds, boxed corner links, padded galleries with off-brand stock, and re-aligned menus, all of which the owner reverted. Briefs must say: keep the existing design intent; fix bugs, do not restyle.",
       "detail": null,
       "addedAt": "2026-09-10"
+    },
+    {
+      "category": "general",
+      "cli": "claude",
+      "summary": "A glyph/emoji cleanup sweep must cover one wide range U+2010-2BFF plus U+1F000-1FAFF, plus HTML numeric/named entities (&#8594; &ldquo;) and CSS content: glyphs, and must be verified against RENDERED HTML of every page, not source. Hand-picked emoji blocks miss arrows (U+2190), geometric shapes (U+25A0, play triangle) and Misc Technical (U+2300, pause). Also next dev keeps stale Sanity fetches in .next; clear .next before verifying content patches.",
+      "detail": null,
+      "addedAt": "2026-09-11"
     }
   ]
 }
