@@ -792,6 +792,13 @@
       "summary": "A glyph/emoji cleanup sweep must cover one wide range U+2010-2BFF plus U+1F000-1FAFF, plus HTML numeric/named entities (&#8594; &ldquo;) and CSS content: glyphs, and must be verified against RENDERED HTML of every page, not source. Hand-picked emoji blocks miss arrows (U+2190), geometric shapes (U+25A0, play triangle) and Misc Technical (U+2300, pause). Also next dev keeps stale Sanity fetches in .next; clear .next before verifying content patches.",
       "detail": null,
       "addedAt": "2026-09-11"
+    },
+    {
+      "category": "general",
+      "cli": "claude",
+      "summary": "A change was reverted: the token system in globals.css and the env-based Mapbox token stay in place and the app still builds",
+      "detail": "Claimed by claude on 2026-09-08 (globals.css, ItineraryMap.jsx, .gitignore, manifest.json). Checked 2026-09-11: src/components/ItineraryMap/ItineraryMap.jsx no longer exists.",
+      "addedAt": "2026-09-11"
     }
   ]
 }
